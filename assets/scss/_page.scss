@@ -1,0 +1,10 @@
+@import "mediaQuery";
+
+.page {
+    position: absolute;
+
+    @include smartphone {
+        position: relative;
+    }
+
+}

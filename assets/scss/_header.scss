@@ -1,0 +1,42 @@
+@import "mediaQuery";
+@import "colors";
+
+header {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: $navigationBarColor;
+
+    nav {
+        margin: 0;
+        padding: 0;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+
+            li {
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+
+                a {
+                    display: block;
+                    padding: 16px;
+                    &:visited, &:link, & {
+                        text-decoration: none;
+                        color: $textColorPrimary;
+                    }
+
+                    span {
+                        @include media(480px) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
