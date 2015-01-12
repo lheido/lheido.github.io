@@ -1,10 +1,31 @@
 @import "mediaQuery";
+@import "dimen";
+@import "colors";
 
 .page {
     position: absolute;
+    width: 100%;
+    height: 100%;
 
-    @include smartphone {
+    @include mainBreakPoint {
         position: relative;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .content-wrapper {
+        position: relative;
+        padding: $default-content-margin;
+        padding-top: $default-content-margin-top;
+
+        @include mainBreakPoint {
+            padding: 0;
+            padding-top: $default-content-margin-top;
+        }
+
+        .content {
+            position: relative;
+        }
     }
 
 }

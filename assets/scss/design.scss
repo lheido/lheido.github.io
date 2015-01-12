@@ -1,3 +1,77 @@
+@import "colors";
 @import "globalInit";
 @import "page";
 @import "header";
+@import "dimen";
+
+#site-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#home {
+    background-color: $windowBackground;
+
+    .content {
+        background-color: white;
+        box-shadow: 0px 0px 3px $colorPrimary;
+        border-radius: 2px;
+        overflow: hidden;
+
+        h1 {
+            font-weight: normal;
+            font-size: 2.0em;
+            padding: $default-padding;
+            padding-left: $default-title-padding;
+            padding-bottom: $default-title-padding * 2;
+            background-color: $colorPrimaryDark;
+            color: $textColorPrimary;
+            margin: 0;
+        }
+        a {
+            display: block;
+            font-size: 2.0em;
+            padding: $default-padding;
+            padding-left: $default-padding - 5px;
+            padding-right: $default-padding - 5px;
+            color: $textColorPrimary;
+            background-color: $colorPrimary;
+            position: relative;
+            top: - $default-padding * 2 - 6px;
+            left: $default-title-padding;
+            border-radius: 50%;
+            float: left;
+            box-shadow: 0px 0px 5px black;
+
+            &:hover {
+                background-color: lighten($colorPrimary, 10%);
+            }
+        }
+        p {
+            padding: $default-padding;
+            margin: $default-padding;
+            text-align: justify;
+            width: 50%;
+            background-color: $windowBackground;
+            float: right;
+        }
+        section {
+            clear: right;
+        }
+    }
+}
+
+#android-projects {
+    display: none;
+    @include mainBreakPoint {
+        background-color: red;
+    }
+}
+
+#web-projects {
+    display: none;
+    @include mainBreakPoint {
+        background-color: green;
+    }
+}

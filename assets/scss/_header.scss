@@ -1,12 +1,38 @@
 @import "mediaQuery";
 @import "colors";
+@import "dimen";
+
+$nav-off-width: 320px;
+$toggle-nav-width: 64px;
 
 header {
-    position: absolute;
+    position: fixed;
     margin: 0;
     padding: 0;
     width: 100%;
+    left: 0;
+    z-index: 42;
     background-color: $navigationBarColor;
+
+    @include mainBreakPoint {
+        width: $nav-off-width;
+        height: 100%;
+        left: - $nav-off-width;
+    }
+
+    #toggle-nav {
+        display: none;
+        width: $toggle-nav-width;
+        height: $toggle-nav-width;
+        background-color: $navigationBarColor;
+        position: absolute;
+        top: 0;
+        left: $nav-off-width;
+
+        @include mainBreakPoint {
+            display: block;
+        }
+    }
 
     nav {
         margin: 0;
@@ -22,18 +48,17 @@ header {
                 padding: 0;
                 display: inline-block;
 
+                @include mainBreakPoint {
+                    display: block;
+                }
+
                 a {
                     display: block;
-                    padding: 16px;
+                    line-height: $default-padding;
+                    padding: $default-padding;
                     &:visited, &:link, & {
                         text-decoration: none;
                         color: $textColorPrimary;
-                    }
-
-                    span {
-                        @include media(480px) {
-                            display: none;
-                        }
                     }
                 }
             }
