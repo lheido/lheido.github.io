@@ -1,4 +1,4 @@
-$smartphone-width : 480px;
+$smartphone-width : 650px;
 $tablet-width: 769px;
 
 @mixin media($max){
@@ -15,6 +15,12 @@ $tablet-width: 769px;
 
 @mixin secondBreakPoint {
     @include media($smartphone-width) {
+        @content;
+    }
+}
+
+@mixin thirdBreakPoint {
+    @include media(1024px) {
         @content;
     }
 }

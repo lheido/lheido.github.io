@@ -8,99 +8,124 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow-x: hidden;
 }
 
 #home {
     background-color: $windowBackground;
 
-    .content {
-        background-color: white;
-        box-shadow: 0px 0px 3px $colorPrimary;
-        border-radius: 2px;
+    .content-wrapper {
+        // specific margin to home content, see original margin in _pages.scss
+        margin-right: 25%;
 
-        h1 {
-            font-weight: normal;
-            font-size: 2.0em;
-            padding: $default-padding;
-            padding-left: $default-title-padding;
-            padding-bottom: $default-title-padding * 2;
-            background-color: $colorPrimaryDark;
-            color: $textColorPrimary;
-            margin: 0;
+        @include thirdBreakPoint {
+            margin-right: 20%;
+            margin-left: 0;
         }
-        a {
-            display: block;
-            font-size: 2.0em;
-            padding: $default-padding;
-            padding-left: $default-padding - 5px;
-            padding-right: $default-padding - 5px;
-            color: $textColorPrimary;
-            background-color: $colorPrimary;
-            position: relative;
-            top: - $default-padding * 2 - 6px;
-            left: $default-title-padding;
-            border-radius: 50%;
-            float: left;
-            box-shadow: 0px 0px 5px black;
 
-            &:hover {
-                background-color: lighten($colorPrimary, 10%);
-            }
+
+        @include mainBreakPoint {
+            margin-right: 0;
         }
-        p {
-            padding: $default-padding;
-            margin: $default-padding;
-            text-align: justify;
-            width: 50%;
-            background-color: $windowBackground;
-            float: right;
 
-            @include secondBreakPoint {
-                width: auto;
+        .content {
+            background-color: white;
+            box-shadow: 0px 0px 3px $colorPrimary;
+            border-radius: 2px;
+
+            h1 {
+                font-weight: normal;
+                font-size: 2.0em;
+                padding: $default-padding;
+                padding-left: $default-title-padding;
+                padding-bottom: $default-title-padding * 2;
+                background-color: $colorPrimaryDark;
+                color: $textColorPrimary;
                 margin: 0;
-                display: none;
             }
-        }
-        section {
-            clear: both;
-            padding: $default-padding;
-            margin: 0;
-            ul {
+            a {
+                display: block;
+                font-size: 2.0em;
+                padding: $default-padding;
+                padding-left: $default-padding - 5px;
+                padding-right: $default-padding - 5px;
+                color: $textColorPrimary;
+                background-color: $colorPrimary;
+                position: relative;
+                top: - $default-padding * 2 - 6px;
+                left: $default-title-padding;
+                border-radius: 50%;
+                float: left;
+                box-shadow: 0px 0px 5px black;
+                z-index: 10;
+
+                &:hover {
+                    background-color: lighten($colorPrimary, 10%);
+                }
+            }
+            p {
+                padding: $default-padding;
+                margin-left: $default-padding;
+                margin-right: $default-padding;
+                text-align: justify;
+                width: 50%;
+                background-color: $windowBackground;
+                position: relative;
+                float: right;
+                top: - $default-padding * 7.5;
+                transition: all 0.5s linear;
+
+                @include secondBreakPoint {
+                    float: none;
+                    margin: 0;
+                    top: 0;
+                    width: auto;
+                    padding-top: $default-padding * 5;
+                }
+            }
+            section {
+                clear: left;
+                padding: $default-padding;
                 margin: 0;
+                ul {
+                    margin: 0;
+                    padding-left: $default-padding * 2;
+                    padding-bottom: $default-padding;
 
-                li {
-                    list-style: none;
-                    padding: $default-padding;
-                    position: relative;
+                    li {
+                        list-style: none;
+                        padding: $default-padding;
+                        position: relative;
 
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        left: - $default-padding * 2;
-                        top: $default-padding / 2;
-                        width: $default-padding * 2;
-                        height: $default-padding * 2;
-                        background-color: $colorPrimary;
-                        border-radius: 50%;
-                    }
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            left: - $default-padding * 2;
+                            top: $default-padding / 2;
+                            width: $default-padding * 2;
+                            height: $default-padding * 2;
+                            background-color: $colorPrimary;
+                            border-radius: 50%;
+                        }
 
-                    &:nth-child(1)::after {
-                        background-color: $colorAccent;
-                    }
+                        &:nth-child(1)::after {
+                            background-color: $colorAccent;
+                        }
 
-                    &::before {
-                        content: "";
-                        position: absolute;
-                        left: - $default-padding - 2px;
-                        top: $default-padding / 2;
-                        width: 1px;
-                        height: 100%;
-                        border-left: 3px solid $colorPrimaryDark;
-                    }
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            left: - $default-padding - 2px;
+                            top: $default-padding / 2;
+                            width: 1px;
+                            height: 100%;
+                            border-left: 3px solid $colorPrimaryDark;
+                        }
 
-                    &:last-child::before {
-                        border-left: 3px dotted $colorPrimary;
-                        opacity: 0.8;
+                        &:last-child::before {
+                            border-left: 3px dotted $colorPrimary;
+                            opacity: 0.8;
+                        }
                     }
                 }
             }
@@ -109,15 +134,33 @@
 }
 
 #android-projects {
-    display: none;
+    background-color: $colorPrimary;
+    z-index: 20;
+    left: 80%;
+
     @include mainBreakPoint {
-        background-color: red;
+        left: 0;
+    }
+
+    .content {
+        background-color: white;
+        box-shadow: 0px 0px 3px $colorPrimary;
+        border-radius: 2px;
     }
 }
 
 #web-projects {
-    display: none;
+    background-color: lighten($colorPrimaryDark, 2);
+    z-index: 30;
+    left: 90%;
+
     @include mainBreakPoint {
-        background-color: green;
+        left: 0;
+    }
+
+    .content {
+        background-color: white;
+        box-shadow: 0px 0px 3px $colorPrimary;
+        border-radius: 2px;
     }
 }

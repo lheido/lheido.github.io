@@ -11,3 +11,7 @@ body {
     margin: 0;
     padding: 0;
 }
+
+html, body, div, section, a, ul, li, p, h1, header, nav {
+    box-sizing: border-box;
+}
