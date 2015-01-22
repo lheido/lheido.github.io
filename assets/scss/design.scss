@@ -2,6 +2,7 @@
 @import "globalInit";
 @import "page";
 @import "header";
+@import "deco";
 @import "dimen";
 
 #site-wrapper {
@@ -13,6 +14,10 @@
 
 #home {
     background-color: $windowBackground;
+    .deco {
+        top: $deco-home-top;
+        right: 0px;
+    }
 
     .content-wrapper {
         // specific margin to home content, see original margin in _pages.scss

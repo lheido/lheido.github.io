@@ -1,0 +1,58 @@
+@import "colors";
+
+$deco-home-top: 120px;
+
+
+.deco {
+    position: absolute;
+
+    /**
+     * deco home
+     */
+    #deco-home1, #deco-home2, #deco-home3, #deco-home4, #deco-home5, #deco-home6 {
+        background: rgba($colorAccent, 0.9);
+        position: relative;
+    }
+
+    #deco-home1 {
+        width: 100px;
+        height: 100px;
+    }
+
+    #deco-home2 {
+        width: 42px;
+        height: 42px;
+        top: -10px;
+        left: -10px;
+        background: rgba($colorAccent, 0.8);
+    }
+
+    #deco-home3 {
+        width: 7px;
+        height: 7px;
+        top: 4px;
+        left: -28px;
+        background: rgba($colorAccent, 0.5);
+    }
+
+    #deco-home4 {
+        width: 21px;
+        height: 21px;
+        background: rgba($colorAccent, 0.8);
+    }
+
+    #deco-home5 {
+        width: 33px;
+        height: 33px;
+        left: -42px;
+        background: rgba($colorAccent, 0.9);
+    }
+
+    #deco-home6 {
+        width: 9px;
+        height: 9px;
+        left: -15px;
+        top: -5px;
+        background: rgba($colorAccent, 0.6);
+    }
+}
