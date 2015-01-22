@@ -1,58 +1,75 @@
 @import "colors";
 
-$deco-home-top: 120px;
+$deco-home-top: 221px;
 
 
 .deco {
     position: absolute;
+    transition: all 0.3s;
 
     /**
      * deco home
      */
-    #deco-home1, #deco-home2, #deco-home3, #deco-home4, #deco-home5, #deco-home6 {
+    #deco-home1, #deco-home2, #deco-home3, #deco-home4, #deco-home5 {
         background: rgba($colorAccent, 0.9);
         position: relative;
     }
 
     #deco-home1 {
-        width: 100px;
-        height: 100px;
+        width: 84px;
+        height: 84px;
     }
 
     #deco-home2 {
-        width: 42px;
-        height: 42px;
-        top: -10px;
-        left: -10px;
-        background: rgba($colorAccent, 0.8);
+        width: 66px;
+        height: 66px;
+        top: -15px;
+        left: -20px;
+        background: rgba($colorAccent, 0.7);
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            top: 30px;
+            left: -15px;
+            background: rgba($colorAccent, 0.7);
+        }
     }
 
     #deco-home3 {
-        width: 7px;
-        height: 7px;
-        top: 4px;
-        left: -28px;
-        background: rgba($colorAccent, 0.5);
-    }
-
-    #deco-home4 {
-        width: 21px;
-        height: 21px;
+        width: 32px;
+        height: 32px;
+        top: -100px;
+        left: -70px;
         background: rgba($colorAccent, 0.8);
     }
 
-    #deco-home5 {
-        width: 33px;
-        height: 33px;
-        left: -42px;
-        background: rgba($colorAccent, 0.9);
+    #deco-home4 {
+        width: 42px;
+        height: 42px;
+        top: -120px;
+        left: -160px;
+        background: rgba($colorAccent, 0.8);
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            top: 35px;
+            left: 35px;
+            background: rgba($colorAccent, 0.5);
+        }
     }
 
-    #deco-home6 {
-        width: 9px;
-        height: 9px;
-        left: -15px;
-        top: -5px;
-        background: rgba($colorAccent, 0.6);
+    #deco-home5 {
+        width: 10px;
+        height: 10px;
+        top: -142px;
+        left: -210px;
     }
+
+
 }

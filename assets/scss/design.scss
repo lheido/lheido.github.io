@@ -17,6 +17,18 @@
     .deco {
         top: $deco-home-top;
         right: 0px;
+
+        @include thirdBreakPoint {
+            top: $deco-home-top + 80;
+        }
+
+        @include mainBreakPoint {
+            top: $deco-home-top + 90;
+        }
+
+        @include secondBreakPoint {
+            display: none;
+        }
     }
 
     .content-wrapper {
