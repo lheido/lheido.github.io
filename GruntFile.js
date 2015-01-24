@@ -13,10 +13,16 @@ module.exports = function(grunt) {
                 }
             }
         },
+        concat: {
+            dist: {
+                src: ['./bower_components/hammerjs/hammer.min.js', 'assets/js/dev.js'],
+                dest: 'assets/js/dist.js',
+            }
+        },
         watch: {
             styles: {
                 files: ['**/*.scss', "**/*.html", "**/*.js"],
-                tasks: ['sass:dist']
+                tasks: ['sass:dist', 'concat:dist']
             },
             options: {
                 livereload: true
@@ -24,8 +30,9 @@ module.exports = function(grunt) {
         }
     })
 
-    grunt.loadNpmTasks('grunt-contrib-sass')
-    grunt.loadNpmTasks('grunt-contrib-watch')
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
 
-    grunt.registerTask('default', ['sass:dist'])
+    grunt.registerTask('default', ['sass:dist']);
 }
