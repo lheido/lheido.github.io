@@ -1,0 +1,25 @@
+{
+  "name": "lheido.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "GruntFile.js",
+  "dependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-sass": "~0.8.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-sass": "~0.17.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lheido/lheido.github.io.git"
+  },
+  "author": "lheido",
+  "license": "GNU GPLv3",
+  "bugs": {
+    "url": "https://github.com/lheido/lheido.github.io/issues"
+  }
+}
