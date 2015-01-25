@@ -1,1 +1,4 @@
-var test = 42;
+// hammerjs concat.
+//modernizr concat
+
+console.log(Modernizr.csstransforms3d);

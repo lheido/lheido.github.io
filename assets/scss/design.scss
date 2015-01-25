@@ -4,6 +4,7 @@
 @import "header";
 @import "deco";
 @import "dimen";
+@import "../../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
 
 #site-wrapper {
     position: absolute;
@@ -14,22 +15,6 @@
 
 #home {
     background-color: $windowBackground;
-    .deco {
-        top: $deco-home-top;
-        right: 0px;
-
-        @include thirdBreakPoint {
-            top: $deco-home-top + 80;
-        }
-
-        @include mainBreakPoint {
-            top: $deco-home-top + 90;
-        }
-
-        @include secondBreakPoint {
-            display: none;
-        }
-    }
 
     .content-wrapper {
         // specific margin to home content, see original margin in _pages.scss
@@ -49,6 +34,23 @@
             background-color: white;
             box-shadow: 0px 0px 3px $colorPrimary;
             border-radius: 2px;
+
+            .deco {
+                top: $deco-home-top;
+                right: 0px;
+
+                @include thirdBreakPoint {
+                    top: $deco-home-top + 80;
+                }
+
+                @include mainBreakPoint {
+                    top: $deco-home-top + 90;
+                }
+
+                @include secondBreakPoint {
+                    display: none;
+                }
+            }
 
             h1 {
                 font-weight: normal;

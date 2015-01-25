@@ -15,14 +15,18 @@ module.exports = function(grunt) {
         },
         concat: {
             dist: {
-                src: ['./bower_components/hammerjs/hammer.min.js', 'assets/js/dev.js'],
+                src: ['./bower_components/hammerjs/hammer.min.js', 'assets/js/modernizr.custom.42859.js', 'assets/js/dev.js'],
                 dest: 'assets/js/dist.js',
             }
         },
         watch: {
             styles: {
-                files: ['**/*.scss', "**/*.html", "**/*.js"],
-                tasks: ['sass:dist', 'concat:dist']
+                files: ['assets/scss/*.scss', "index.html"],
+                tasks: ['sass:dist'],
+            },
+            scripts: {
+                files: ['assets/js/dev.js'],
+                tasks: ['concat:dist'],
             },
             options: {
                 livereload: true
