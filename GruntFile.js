@@ -15,7 +15,7 @@ module.exports = function(grunt) {
         },
         concat: {
             dist: {
-                src: ['./bower_components/hammerjs/hammer.min.js', 'assets/js/modernizr.custom.42859.js', 'assets/js/dev.js'],
+                src: ['./bower_components/hammerjs/hammer.min.js', 'assets/js/modernizr.custom.4285.js', 'assets/js/dev.js'],
                 dest: 'assets/js/dist.js',
             }
         },

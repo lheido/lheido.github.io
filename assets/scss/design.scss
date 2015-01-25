@@ -156,10 +156,13 @@
 #android-projects {
     background-color: $colorPrimary;
     z-index: 20;
-    left: 80%;
+
+    @include transform(translateX(80%));
+    @include transform(translate3d(80%, 0, 0));
 
     @include mainBreakPoint {
-        left: 0;
+        @include transform(translateX(0%));
+        @include transform(translate3d(0%, 0, 0));
     }
 
     .content {
@@ -172,10 +175,13 @@
 #web-projects {
     background-color: lighten($colorPrimaryDark, 2);
     z-index: 30;
-    left: 90%;
+    
+    @include transform(translateX(90%));
+    @include transform(translate3d(90%, 0, 0));
 
     @include mainBreakPoint {
-        left: 0;
+        @include transform(translateX(0%));
+        @include transform(translate3d(0%, 0, 0));
     }
 
     .content {

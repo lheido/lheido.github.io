@@ -1,6 +1,7 @@
 @import "mediaQuery";
 @import "dimen";
 @import "colors";
+@import "../../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
 
 /**
  * Define position, size, overflow property, margin and padding only.
@@ -12,6 +13,7 @@
     width: 100%;
     height: 100%;
     overflow-y: auto;
+    @include transition(transform 0.3s linear);
 
     @include mainBreakPoint {
         position: relative;
@@ -24,7 +26,6 @@
         transition: all 0.5s linear;
         position: relative;
         margin: $default-content-margin;
-        // margin-top: $default-content-margin-top;
         margin-top: $default-content-margin-top;
 
         @include mainBreakPoint {
