@@ -65,6 +65,7 @@ window.onresize = function() {
         if (isSmallScreen()) {
             translateX(androidProjectsPage, "0%");
             translateX(webProjectsPage, "0%");
+            document.querySelector(currentPage).scrollIntoView();
         } else {
             selectPage(currentPage);
         }
