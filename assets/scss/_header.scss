@@ -60,6 +60,7 @@ header {
                     &:visited, &:link, & {
                         text-decoration: none;
                         color: $textColorPrimary;
+                        outline: none;
                     }
                 }
             }
