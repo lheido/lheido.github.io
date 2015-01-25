@@ -1,8 +1,9 @@
-// hammerjs concat.
-//modernizr concat
-
-
-var prefixedTransform = Modernizr.prefixed('transform');
+// dev.js
+var prefixedTransform = Modernizr.prefixed('transform'),
+    currentPage = "#home",
+    androidProjectsPage = document.querySelector("#android-projects"),
+    webProjectsPage = document.querySelector("#web-projects"),
+    navItems = document.querySelectorAll("header nav ul li a");
 
 function translateX(elt, offset) {
     var translate = "translateX("+offset+")";
@@ -13,30 +14,48 @@ function translateX(elt, offset) {
 }
 
 function isSmallScreen() {
-    // si le menu est sur la gauche == petit écran.
+    // menu on left == small screen.
     return document.querySelector("header").clientWidth != window.innerWidth;
 }
 
-var androidProjectsPage = document.querySelector("#android-projects"),
-    webProjectsPage = document.querySelector("#web-projects"),
-    navItems = document.querySelectorAll("header nav ul li a");
+function selectPage(page) {
+    if (page == "#home") {
+        translateX(androidProjectsPage, "80%");
+        translateX(webProjectsPage, "90%");
+    } else if (page == "#android-projects") {
+        translateX(androidProjectsPage, "10%");
+        translateX(webProjectsPage, "90%");
+    } else if (page == "#web-projects") {
+        translateX(androidProjectsPage, "80%");
+        translateX(webProjectsPage, "10%");
+    }
+}
 
 for (var i = 0; i < navItems.length; i++) {
-    //on ajoute un onclick event
-    navItems[i].addEventListener("click", function(event){
-        if(!isSmallScreen()){
-            if (this.hash == "#home") {
-                translateX(androidProjectsPage, "80%");
-                translateX(webProjectsPage, "90%");
-            } else if (this.hash == "#android-projects") {
-                translateX(androidProjectsPage, "10%");
-                translateX(webProjectsPage, "90%");
-            } else if (this.hash == "#web-projects") {
-                translateX(androidProjectsPage, "80%");
-                translateX(webProjectsPage, "10%");
-            }
+    //add onclick event
+    navItems[i].addEventListener("click", function(event) {
+        if (!isSmallScreen()) {
+            selectPage(this.hash);
+            currentPage = this.hash; // save current selected page.
             event.preventDefault();
             return false;
         }
     }, false);
+}
+
+// le fait de faire appel à translate via js casse les mediaqueries (insertion en ligne du style)...
+var resizeTimer = 0;
+window.onresize = function() {
+    if (resizeTimer) {
+        clearTimeout(resizeTimer);
+    }
+    resizeTimer = setTimeout(function(){
+        // call only at the end of onresize.
+        if (isSmallScreen()) {
+            translateX(androidProjectsPage, "0%");
+            translateX(webProjectsPage, "0%");
+        } else {
+            selectPage(currentPage);
+        }
+    }, 100);
 }
