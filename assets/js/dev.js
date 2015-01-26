@@ -88,9 +88,9 @@ toggleNav.addEventListener("click", function(event){
         // burgerTop.nextRotate -= 90;
         // burgerBottom.nextRotate += 90;
         menu.isVisible = ! menu.isVisible;
-        event.stopPropagation();
-        return false;
     }
+    event.stopPropagation();
+    return false;
 }, false);
 
 //add on click event on header if isSmallScreen
