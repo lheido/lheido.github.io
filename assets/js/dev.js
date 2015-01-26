@@ -43,27 +43,29 @@ function isSmallScreen() {
 }
 
 function selectPage(page) {
-    if (page == "#home") {
-        translateX(androidProjectsPage, "80%");
-        translateX(webProjectsPage, "90%");
-    } else if (page == "#android-projects") {
-        translateX(androidProjectsPage, "10%");
-        translateX(webProjectsPage, "90%");
-    } else if (page == "#web-projects") {
-        translateX(androidProjectsPage, "80%");
-        translateX(webProjectsPage, "10%");
+    if (!isSmallScreen()) {
+        if (page == "#home") {
+            translateX(androidProjectsPage, "80%");
+            translateX(webProjectsPage, "90%");
+        } else if (page == "#android-projects") {
+            translateX(androidProjectsPage, "10%");
+            translateX(webProjectsPage, "90%");
+        } else if (page == "#web-projects") {
+            translateX(androidProjectsPage, "80%");
+            translateX(webProjectsPage, "10%");
+        }
+    } else {
+        document.querySelector(page).scrollIntoView();
     }
 }
 
 //add onclick event on each menu items
 for (var i = 0; i < navItems.length; i++) {
     navItems[i].addEventListener("click", function(event) {
-        if (!isSmallScreen()) {
-            selectPage(this.hash);
-            currentPage = this.hash; // save current selected page.
-            event.preventDefault();
-            return false;
-        }
+        selectPage(this.hash);
+        currentPage = this.hash; // save current selected page.
+        event.preventDefault();
+        return false;
     }, false);
 }
 
