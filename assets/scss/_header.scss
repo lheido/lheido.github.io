@@ -93,6 +93,14 @@ header {
                         color: $textColorPrimary;
                         outline: none;
                     }
+                    &:hover > i {
+                        @include transition(color 0.3s linear);
+                        color: $colorAccent;
+                    }
+                    &:active , &.active {
+                        @include transition(color 0.3s linear);
+                        color: $colorAccent;
+                    }
                 }
             }
         }

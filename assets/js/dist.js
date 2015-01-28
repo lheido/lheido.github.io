@@ -75,6 +75,9 @@ for (var i = 0; i < navItems.length; i++) {
     navItems[i].addEventListener("click", function(event) {
         selectPage(this.hash);
         currentPage = this.hash; // save current selected page.
+        for (var j = 0; j < navItems.length; j++)
+            navItems[j].classList.remove("active");
+        this.classList.add("active");
         event.preventDefault();
         return false;
     }, false);
