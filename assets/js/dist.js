@@ -76,8 +76,15 @@ for (var i = 0; i < navItems.length; i++) {
         selectPage(this.hash);
         currentPage = this.hash; // save current selected page.
         for (var j = 0; j < navItems.length; j++)
-            navItems[j].parentNode.classList.remove("active");
-        this.parentNode.classList.add("active");
+            navItems[j].classList.remove("ripple");
+        this.classList.add("ripple");
+        // hack parce que l'animation ne veux pas se rejouer plus d'une fois...
+        // et encore... ne fonctionne que sur chrome... sauf avec infinite...
+        if (this.timer) clearTimeout(this.timer);
+        item = this;
+        this.timer = setTimeout(function(){
+            item.classList.remove("ripple");
+        }, 1300);
         event.preventDefault();
         return false;
     }, false);
