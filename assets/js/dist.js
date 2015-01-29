@@ -76,8 +76,8 @@ for (var i = 0; i < navItems.length; i++) {
         selectPage(this.hash);
         currentPage = this.hash; // save current selected page.
         for (var j = 0; j < navItems.length; j++)
-            navItems[j].classList.remove("active");
-        this.classList.add("active");
+            navItems[j].parentNode.classList.remove("active");
+        this.parentNode.classList.add("active");
         event.preventDefault();
         return false;
     }, false);

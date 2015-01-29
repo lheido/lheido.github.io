@@ -24,3 +24,9 @@ $tablet-width: 769px;
         @content;
     }
 }
+
+@mixin minMainBreakPoint {
+    @media (min-width: $tablet-width) {
+        @content;
+    }
+}
