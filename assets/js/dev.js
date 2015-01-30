@@ -67,13 +67,12 @@ for (var i = 0; i < navItems.length; i++) {
         for (var j = 0; j < navItems.length; j++)
             navItems[j].classList.remove("ripple");
         this.classList.add("ripple");
-        // hack parce que l'animation ne veux pas se rejouer plus d'une fois...
-        // et encore... ne fonctionne que sur chrome... sauf avec infinite...
+        // on enlève la class ripple avec un timer pour pouvoir la rejouer plus tard.
         if (this.timer) clearTimeout(this.timer);
         item = this;
         this.timer = setTimeout(function(){
             item.classList.remove("ripple");
-        }, 1300);
+        }, 800);
         event.preventDefault();
         return false;
     }, false);
@@ -82,8 +81,6 @@ for (var i = 0; i < navItems.length; i++) {
 //init some variables
 menu.isVisible = false;
 burger.nextRotate = 180;
-burgerTop.nextRotate = 45;
-burgerBottom.nextRotate = -45;
 //add on click event on toggleNav
 toggleNav.addEventListener("click", function(event){
     if (isSmallScreen()) {
@@ -97,8 +94,6 @@ toggleNav.addEventListener("click", function(event){
             toArrow();
         }
         burger.nextRotate += 180;
-        // burgerTop.nextRotate -= 90;
-        // burgerBottom.nextRotate += 90;
         menu.isVisible = ! menu.isVisible;
     }
     event.stopPropagation();

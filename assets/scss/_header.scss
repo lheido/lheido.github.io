@@ -134,7 +134,7 @@ header {
                         @include animation-name(ripple);
                         @include animation-duration(0.7s);
                         @include animation-timing-function(linear);
-                        @include animation-iteration-count(infinite);
+                        @include animation-iteration-count(1);
                         @include animation-direction(normal);
                         @include animation-fill-mode(backwards);
                     }
