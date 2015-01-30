@@ -62,7 +62,7 @@
                 color: $textColorPrimary;
                 margin: 0;
             }
-            a {
+            a#profile-github {
                 display: block;
                 font-size: 2.0em;
                 padding: $default-padding;
@@ -94,6 +94,11 @@
                 top: - $default-padding * 7.5;
                 transition: all 0.5s linear;
 
+                a {
+                    color: black;
+                    text-decoration: none;
+                }
+
                 @include secondBreakPoint {
                     float: none;
                     margin: 0;
@@ -102,7 +107,7 @@
                     padding-top: $default-padding * 5;
                 }
             }
-            section {
+            .formations {
                 clear: left;
                 padding: $default-padding;
                 margin: 0;
@@ -145,6 +150,70 @@
                         &:last-child::before {
                             border-left: 3px dotted $colorPrimary;
                             opacity: 0.8;
+                        }
+                    }
+                }
+            }
+
+            .info {
+                padding: $default-padding $default-padding * 3;
+
+                @include secondBreakPoint {
+                    padding: $default-padding;
+                }
+
+                section {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 50%;
+                    box-sizing: border-box;
+
+                    @include secondBreakPoint {
+                        width: 100%;
+                    }
+
+                    &:first-child {
+                        text-align: right;
+
+                        @include secondBreakPoint {
+                            text-align: left;
+                        }
+
+                        ul {
+                            position: relative;
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: -52px;
+                                right: 0;
+                                width: 1px;
+                                bottom: 0;
+                                background-color: $colorPrimaryDark;
+                                @include secondBreakPoint {
+                                    background-color: transparent;
+                                }
+                            }
+                        }
+                    }
+
+                    h4 {
+                        margin: 0;
+                        padding: $default-padding;
+                        padding-top: $default-padding * 2;
+                        background-color: $colorAccent;
+                    }
+                    ul {
+                        padding: 0;
+                        margin: 0;
+                        li {
+                            list-style: none;
+                            padding: $default-padding / 2;
+                            margin: $default-padding / 2;
+                            background-color: $windowBackground;
+                            @include secondBreakPoint {
+                                margin-right: 0;
+                                margin-left: 0;
+                            }
                         }
                     }
                 }
