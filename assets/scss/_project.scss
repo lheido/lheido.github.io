@@ -19,6 +19,10 @@ $aside-height : 800px / 3;
         margin: 0 $aside-width 0 0;
         font-weight: normal;
         font-size: 1.4em;
+
+        @include secondBreakPoint {
+            margin: 0 0 0 0;
+        }
     }
 
     & > a {
@@ -44,6 +48,10 @@ $aside-height : 800px / 3;
         padding-bottom: 0;
         background-color: white;
 
+        @include secondBreakPoint {
+            margin: 0 0 0 0;
+        }
+
         &::after {
             content:"";
             display: table;
@@ -56,6 +64,14 @@ $aside-height : 800px / 3;
         height: $aside-height;
         background-color: lighten($colorPrimary, 30);
         float: right;
+        overflow: hidden;
+
+        @include secondBreakPoint {
+            float: none;
+            width: 100%;
+            text-align: center;
+            height: $aside-height / 2;
+        }
 
         & > img {
             max-width: 100%;
