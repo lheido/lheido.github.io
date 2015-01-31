@@ -244,10 +244,6 @@
         }
 
         .content {
-            background-color: white;
-            box-shadow: 0px 0px 3px darken($colorPrimary, 15);
-            border-radius: 2px;
-
             @include minMainBreakPoint {
                 @include transition(all 0.7s linear);
                 @include transform(translateX(50%));
@@ -277,10 +273,6 @@
         }
 
         .content {
-            background-color: white;
-            box-shadow: 0px 0px 3px $colorPrimary;
-            border-radius: 2px;
-
             @include minMainBreakPoint {
                 @include transition(all 0.7s linear);
                 @include transform(translateX(50%));

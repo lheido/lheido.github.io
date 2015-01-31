@@ -8,6 +8,9 @@ $aside-height : 800px / 3;
 
 .project {
     position: relative;
+    margin-bottom: $default-padding * 2;
+    box-shadow: 0px 0px 3px darken($colorPrimary, 15);
+    border-radius: 2px;
 
     & > h4 {
         background-color: $colorAccent;
@@ -53,5 +56,9 @@ $aside-height : 800px / 3;
         height: $aside-height;
         background-color: lighten($colorPrimary, 30);
         float: right;
+
+        & > img {
+            max-width: 100%;
+        }
     }
 }
