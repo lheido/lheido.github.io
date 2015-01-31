@@ -226,7 +226,8 @@
 #android-projects {
     background-color: $colorPrimary;
     z-index: 20;
-
+    box-shadow: 0px 0px 5px black;
+    border-left: 1px solid black;
     @include transform(translateX(80%));
     @include transform(translate3d(80%, 0, 0));
 
@@ -255,7 +256,8 @@
 #web-projects {
     background-color: lighten($colorPrimaryDark, 2);
     z-index: 30;
-
+    box-shadow: 0px 0px 5px black;
+    border-left: 1px solid black;
     @include transform(translateX(90%));
     @include transform(translate3d(90%, 0, 0));
 
