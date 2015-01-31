@@ -1,5 +1,6 @@
 // dev.js
 var prefixedTransform = Modernizr.prefixed('transform'),
+    prefixedTransitionDuration = Modernizr.prefixed('transitionDuration'),
     currentPage = "#home",
     androidProjectsPage = document.querySelector("#android-projects"),
     androidProjectsPageContent = document.querySelector("#android-projects .content"),
@@ -11,6 +12,11 @@ var prefixedTransform = Modernizr.prefixed('transform'),
     burgerTop = document.querySelector(".burger:nth-child(1)"),
     burgerBottom = document.querySelector(".burger:nth-child(3)"),
     navItems = document.querySelectorAll("header nav ul li a");
+
+androidProjectsPage.translateMin = 10;
+androidProjectsPage.translateMax = 80;
+webProjectsPage.translateMin = 10;
+webProjectsPage.translateMax = 90;
 
 function xyzOr3d(x, y, z) {
     if (typeof(x) === 'undefined') x = 0;
@@ -47,19 +53,19 @@ function isSmallScreen() {
 function selectPage(page) {
     if (!isSmallScreen()) {
         if (page == "#home") {
-            translateX(androidProjectsPage, "80%");
+            translateX(androidProjectsPage, androidProjectsPage.translateMax+"%");
             translateX(androidProjectsPageContent, "50%");
-            translateX(webProjectsPage, "90%");
+            translateX(webProjectsPage, webProjectsPage.translateMax+"%");
             translateX(webProjectsPageContent, "50%");
         } else if (page == "#android-projects") {
-            translateX(androidProjectsPage, "10%");
+            translateX(androidProjectsPage, androidProjectsPage.translateMin+"%");
             translateX(androidProjectsPageContent, "0%");
-            translateX(webProjectsPage, "90%");
+            translateX(webProjectsPage, webProjectsPage.translateMax+"%");
             translateX(webProjectsPageContent, "50%");
         } else if (page == "#web-projects") {
-            translateX(androidProjectsPage, "80%");
+            translateX(androidProjectsPage, androidProjectsPage.translateMax+"%");
             translateX(androidProjectsPageContent, "50%");
-            translateX(webProjectsPage, "10%");
+            translateX(webProjectsPage, webProjectsPage.translateMin+"%");
             translateX(webProjectsPageContent, "0%");
         }
     } else {
@@ -148,3 +154,44 @@ window.onresize = function() {
         }
     }, 100);
 }
+
+function initHammerEvent(elt) {
+    // Hammerjs event
+    new Hammer(elt, {drag_min_distance: 10})
+        .on("panstart", function(event){
+            elt.style[prefixedTransitionDuration] = "0s";
+        })
+        .on("panleft", function(event){
+            if (!isSmallScreen()) {
+                if (currentPage == "#"+elt.id){
+                    elt.pos = (window.innerWidth - (window.innerWidth * (100- elt.translateMin) / 100)) + event.deltaX;
+                } else {
+                    elt.pos = (window.innerWidth - (window.innerWidth * (100- elt.translateMax) / 100)) + event.deltaX;
+                }
+                translateX(elt, elt.pos+"px");
+            }
+        })
+        .on("panright", function(event){
+            if (!isSmallScreen()) {
+                if (currentPage == "#"+elt.id){
+                    elt.pos = (window.innerWidth - (window.innerWidth * (100- elt.translateMin) / 100)) + event.deltaX;
+                } else {
+                    elt.pos = (window.innerWidth - (window.innerWidth * (100- elt.translateMax) / 100)) + event.deltaX;
+                }
+                translateX(elt, elt.pos+"px");
+            }
+        })
+        .on("panend", function(event){
+            elt.style[prefixedTransitionDuration] = "300ms";
+            if (!isSmallScreen()) {
+                if (elt.pos > window.innerWidth / 2) {
+                    selectPage((currentPage == "#"+elt.id) ? "#home" : currentPage);
+                } else {
+                    selectPage("#"+elt.id);
+                }
+            }
+        });
+}
+
+initHammerEvent(androidProjectsPage);
+initHammerEvent(webProjectsPage);
