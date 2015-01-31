@@ -1,0 +1,57 @@
+@import "mediaQuery";
+@import "dimen";
+@import "colors";
+@import "../../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
+
+$aside-width : 480px / 3;
+$aside-height : 800px / 3;
+
+.project {
+    position: relative;
+
+    & > h4 {
+        background-color: $colorAccent;
+        padding: $default-padding;
+        padding-top: $default-padding * 2;
+        margin: 0 $aside-width 0 0;
+        font-weight: normal;
+        font-size: 1.4em;
+    }
+
+    & > a {
+        display: block;
+        font-size: 2.0em;
+        padding: $default-padding;
+        padding-left: $default-padding * 2;
+        padding-bottom: $default-padding * 2;
+        color: $textColorPrimary;
+        float: right;
+        z-index: 10;
+        border-radius: 0% 0% 0% 100%;
+        background-color: lighten($colorPrimary, 42);
+
+        &:hover {
+            color: lighten($colorPrimary, 10%);
+        }
+    }
+
+    & > section {
+        margin-right: $aside-width;
+        padding: $default-padding;
+        padding-bottom: 0;
+        background-color: white;
+
+        &::after {
+            content:"";
+            display: table;
+            clear: right;
+        }
+    }
+
+    & > aside {
+        width: $aside-width;
+        height: $aside-height;
+        background-color: lighten($colorPrimary, 30);
+        float: right;
+    }
+}

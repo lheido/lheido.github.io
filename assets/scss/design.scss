@@ -2,6 +2,7 @@
 @import "globalInit";
 @import "page";
 @import "header";
+@import "project";
 @import "deco";
 @import "dimen";
 @import "../../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
@@ -52,7 +53,7 @@
                 }
             }
 
-            h1 {
+            & > h1 {
                 font-weight: normal;
                 font-size: 2.0em;
                 padding: $default-padding;
@@ -94,7 +95,7 @@
                 top: - $default-padding * 7.5;
                 transition: all 0.5s linear;
 
-                a {
+                & > a {
                     color: black;
                     text-decoration: none;
                 }
@@ -196,7 +197,7 @@
                         }
                     }
 
-                    h4 {
+                    & > h4 {
                         margin: 0;
                         padding: $default-padding;
                         padding-top: $default-padding * 2;
@@ -234,10 +235,24 @@
         @include transform(translate3d(0%, 0, 0));
     }
 
-    .content {
-        background-color: white;
-        box-shadow: 0px 0px 3px $colorPrimary;
-        border-radius: 2px;
+    .content-wrapper {
+        // specific margin to android-projects content, see original margin in _pages.scss
+        margin-right: 25%;
+
+        @include mainBreakPoint {
+            margin-right: 0;
+        }
+
+        .content {
+            background-color: white;
+            box-shadow: 0px 0px 3px darken($colorPrimary, 15);
+            border-radius: 2px;
+
+            @include minMainBreakPoint {
+                @include transition(all 0.7s linear);
+                @include transform(translateX(50%));
+            }
+        }
     }
 }
 
@@ -253,9 +268,24 @@
         @include transform(translate3d(0%, 0, 0));
     }
 
-    .content {
-        background-color: white;
-        box-shadow: 0px 0px 3px $colorPrimary;
-        border-radius: 2px;
+    .content-wrapper {
+        // specific margin to web-projects content, see original margin in _pages.scss
+        margin-right: 15%;
+
+        @include mainBreakPoint {
+            margin-right: 0;
+        }
+
+        .content {
+            background-color: white;
+            box-shadow: 0px 0px 3px $colorPrimary;
+            border-radius: 2px;
+
+            @include minMainBreakPoint {
+                @include transition(all 0.7s linear);
+                @include transform(translateX(50%));
+            }
+        }
     }
+
 }
